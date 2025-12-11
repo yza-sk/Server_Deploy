@@ -92,10 +92,7 @@ pipeline {
                             echo "${LOG_PREFIX} yq 未安装，使用 docker compose config"
                             def result = sh(
                                 script: '''
-                                    docker compose -f deploy/docker-compose.yml config | \
-                                    grep -E '^\s+image:' | \
-                                    awk '{print $2}' | \
-                                    sort -u
+                                    docker compose -f deploy/docker-compose.yml config | grep 'image:' | awk '{print $2}' | sort -u
                                 ''',
                                 returnStdout: true
                             ).trim()
