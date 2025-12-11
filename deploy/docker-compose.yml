@@ -1,0 +1,11 @@
+version: '3.8'
+
+services:
+  # Example: Web service with Nginx
+  web:
+    image: hello-world:latest
+    container_name: hello_world
+
+networks:
+  default:
+    name: app-network
